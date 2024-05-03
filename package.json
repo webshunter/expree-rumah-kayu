@@ -4,7 +4,7 @@
   "description": "build website drag and drop",
   "main": "app.js",
   "scripts": {
-    "start": "vercel dev"
+    "start": "node index.js"
   },
   "engines": {
     "node": "20.x"
