@@ -10,6 +10,10 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(express.static('public'));
 
+app.all('*', (req, res) => {
+    return handle(req, res)
+})
+
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'public', 'index.htm'));
 });
