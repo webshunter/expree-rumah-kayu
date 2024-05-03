@@ -2,9 +2,12 @@
   "name": "omahkayuwagir",
   "version": "1.0.0",
   "description": "build website drag and drop",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node api/index.js"
+    "start": "vercel dev"
+  },
+  "engines": {
+    "node": "20.x"
   },
   "author": "gugus",
   "license": "ISC",

@@ -11,15 +11,15 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, '..','public','index.htm'));
+    res.sendFile(path.join(__dirname, 'public', 'index.htm'));
 });
 
 app.get('/admin', function (req, res) {
-    res.sendFile(path.join(__dirname, '..','public','index.htm'));
+    res.sendFile(path.join(__dirname, 'public', 'index.htm'));
 });
 
 app.get('/produk/(:any)', function (req, res) {
-    res.sendFile(path.join(__dirname, '..','public','index.htm'));
+    res.sendFile(path.join(__dirname, 'public', 'index.htm'));
 });
 
 app.listen(3000, () => console.log('Server ready on port 3000.'));
