@@ -1,5 +1,9 @@
 export const Admin = async function () {
     return new Promise(async (resolve, reject) => {
+
+        let login = await fetch('/cek-login');
+        let {status} = await login.json();
+
         let [{ Grid }, { Card }] = await call([
             import('../component/grid.js')
             , import('../component/card.js')
@@ -13,11 +17,19 @@ export const Admin = async function () {
             }).get())
         }
 
+        
 
-        let page = el('div').class('p-10').child(
+        let page = status ? el('div').class('p-10').child(
             Grid({
                 data: dataGrid
             })
+        ) 
+        : 
+        el('div').child(
+            el('div').class('h-[60vh] flex justify-center items-center').child(
+                el('div')
+                .html('Anda Belum login')
+            )
         );
 
         resolve(page)
