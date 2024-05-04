@@ -8,9 +8,17 @@ export const Home = async function () {
         ]);
 
         let dataGrid = [];
+        let dataGrid2 = [];
 
-        for (let z = 0; z < 6; z++) {
+        for (let z = 0; z < 3; z++) {
             dataGrid.push(Card({
+                image: '/assets/contoh.jpeg'
+                ,link : '/produk/kursi-pahatan-kayu-jati'
+                , module: {
+                    go: navigateTo
+                }
+            }).get())
+            dataGrid2.push(Card({
                 image: '/assets/contoh.jpeg'
                 ,link : '/produk/kursi-pahatan-kayu-jati'
                 , module: {
@@ -38,7 +46,19 @@ export const Home = async function () {
             Grid({
                 data: dataGrid
             })
-        );
+        )
+        .child(
+            el('div').class('mb-3')
+            .child(
+                el('h1').class('text-xl font-bold').text('Produk Populer')
+            )
+        )
+        .child(
+            Grid({
+                data: dataGrid2
+            })
+        )
+        ;
         
         resolve(page)
    }).catch((e)=>{

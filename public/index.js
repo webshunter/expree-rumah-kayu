@@ -1,5 +1,6 @@
 Promise.all([
     import('./config/router.js?v=' + Version)
+    , import('./config/component/loaderLayer.js?v=' + Version)
     , import('./config/index.js?v=' + Version)
     , import('./config/component/navbar.js?v=' + Version)
     , import('./config/component/footer.js?v=' + Version)
@@ -9,6 +10,7 @@ Promise.all([
     , import('./config/pages/admin.js?v=' + Version)
 ]).then(async function ([
     {Pages, routes, navigateTo, handleRoute }
+    , {loadLayer}
     , conf
     , {NavBar}
     , {Footer}
@@ -56,10 +58,11 @@ Promise.all([
             handleRoute();
 
         })
-    )
+    );
 
-    Container.child(Footer())
+    Container.child(Footer());
 
+    Container.child(loadLayer());
 
     App.appendChild(Container.get())
 

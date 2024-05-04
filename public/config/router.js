@@ -3,7 +3,7 @@ export const Pages = {
     call : function(node){
         if (node instanceof HTMLElement){
             if(window){
-                window.scroll({
+                document.getElementById('app').scroll({
                     top: 0,
                     left: 0,
                     behavior: 'smooth' // Opsional, memberikan efek animasi gulir

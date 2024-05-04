@@ -1,3 +1,17 @@
+export const FooterAction = {
+    element: null,
+    hide: function () {
+        if (this.element && this.element instanceof HTMLElement) {
+            this.element.style.display = 'none';
+        }
+    }
+    , show: function () {
+        if (this.element && this.element instanceof HTMLElement) {
+            this.element.style.display = 'block';
+        }
+    }
+}
+
 export const Footer = function(){
     return el('div').class('bg-indigo-950 text-white').html(`
         <footer class="footer p-10 bg-neutral text-neutral-content">
@@ -14,5 +28,7 @@ export const Footer = function(){
                 </div>
             </nav>
         </footer>
-    `)
+    `).load(function(e){
+        FooterAction.element = e.el;
+    })
 }

@@ -12,7 +12,9 @@ export const Card = function(config){
         },false);
     }).html(`
         <div class="card w-full bg-base-100 shadow-xl">
-        <figure><img src="${config && config.image ? config.image: `https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg`}" alt="Shoes" /></figure>
+        <figure class="h-[250px] bg-cover bg-[url('${config && config.image ? config.image: `https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg`}')]">
+            <img class="hidden" src="${config && config.image ? config.image: `https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg`}" alt="Shoes" />
+        </figure>
         <div class="card-body">
             <h2 class="card-title">
             ${config && config.title ? config.title : 'Shoes!'}
